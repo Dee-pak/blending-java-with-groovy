@@ -22,6 +22,10 @@ class PersonGroovy {
     //No need of toString() method, groovy handles it with ASTs
 
     void sendMail(String message) {
+<<<<<<< HEAD
         println "Message sent by $firstName $lastName $message."
+=======
+        println "Message sent by $firstName $lastName."
+>>>>>>> e9a82d1dfa3a3ca224b907b914222777b58976ca
     }
 }

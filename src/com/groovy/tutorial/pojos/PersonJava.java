@@ -30,7 +30,9 @@ public class PersonJava {
         this.age = age;
         this.email = email;
     }
+    
 
+    //getters and setter (Boiler plate code)
     public String getFirstName() {
         return firstName;
     }
