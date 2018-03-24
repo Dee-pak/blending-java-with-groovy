@@ -8,11 +8,11 @@ package com.groovy.tutorial.pojos
 class PersonGroovy {
 
     // No need of access modifiers, properties are private by default in groovy
-    String firstName;
-    String lastName;
-    long phone;
-    int age;
-    String email;
+    String firstName
+    String lastName
+    long phone
+    int age
+    String email
 
     //no need of any constructor, groovy takes in named arguments while invoking
     // constructors and matches it with properties by name.
