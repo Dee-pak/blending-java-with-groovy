@@ -1,6 +1,3 @@
-/Users/deepakkhobragade/Documents/Personal/groovy-tutorials/.idea
-/Users/deepakkhobragade/Documents/Personal/groovy-tutorials/.idea/misc.xml
-/Users/deepakkhobragade/Documents/Personal/groovy-tutorials/.idea/modules.xml
-/Users/deepakkhobragade/Documents/Personal/groovy-tutorials/.idea/uiDesigner.xml
-/Users/deepakkhobragade/Documents/Personal/groovy-tutorials/.idea/vcs.xml
-/Users/deepakkhobragade/Documents/Personal/groovy-tutorials/.idea/workspace.xml
+.gitignore
+.*
+out/
