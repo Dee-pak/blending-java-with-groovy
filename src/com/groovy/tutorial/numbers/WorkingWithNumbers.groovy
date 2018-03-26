@@ -63,20 +63,20 @@ assert 2 == (int) 2.5    // casting
 
 // times example :
 100.times {
-    print '-'
+    print '-'   // Will print 100 times '-'
 }
 
 // upto example :
 1.upto(20) { num ->
-    print num + ' '
+    print num + ' '     // Will print numbers from 1 upto 20
 }
 
 // downto example :
 20.downto(-5) { num ->
-    print num + ' '
+    print num + ' '     // Will print numbers from 20 till -5
 }
 
 //step
-0.step(10, 2) { num ->
+0.step(10, 2) { num ->  // Will print numbers from 0 to 10 at a step of 2
     print num + ' '
 }
