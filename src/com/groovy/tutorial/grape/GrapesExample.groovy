@@ -5,7 +5,7 @@
 */
 
 // Simple example using apache commons lang library. This will allow you to send a script to anyone without worrying about script's dependencies.
-// @Grab => for single dependency, @Grapes([@Grap(abc), @Grab(xyz)]) => for multiple dependencies
+// @Grab => for single dependency, @Grapes([@Grab(abc), @Grab(xyz)]) => for multiple dependencies
 
 @Grapes(
     @Grab(group='org.apache.commons', module='commons-lang3', version='3.7')
