@@ -12,21 +12,35 @@
 
 class Account {
 
-    BigDecimal balance
-    
-    Account plus(Account otherAccount){
-        new Account(balance: this.balance + otherAccount.balance )
+    BigDecimal balance = 0
+    String type
+
+    void deposit(BigDecimal amount){
+        this.balance += amount
+    }
+
+    void withdraw(BigDecimal amount){
+        this.balance -= amount
+    }
+
+    //Overloading the operator '+'
+    BigDecimal plus(Account otherAccount){
+        this.balance + otherAccount.balance 
     }
     
     String toString(){
-        "Account Balance : $balance"
+        "account Balance : $balance"
     }
 
 }
 
-def checking = new Account( balance:8273.0 )
-def savings = new Account( balance:7679.87 )
+Account checking = new Account(type:"Checking")
+checking.deposit(100.00)
+Account savings = new Account(type:"Savings")
+savings.deposit(50.00)
 
-println "Checking : $checking"
-println "Savings : $savings"
-println "Total : " + (checking + savings)
+println "Checking $checking"
+println "Saving $savings"
+
+BigDecimal total = checking + savings
+println "Total Balance : $total"
