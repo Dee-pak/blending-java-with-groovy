@@ -117,7 +117,7 @@ def map = persons.inject([:]) { result, person ->
 println map
 
 
-// --------- Adding and removing elements from the list -----------    //
+// --------- Adding elements to the list -----------    //
 
 def list = []
 assert list.empty
@@ -144,4 +144,48 @@ a += [5,6]            // everytime
 assert a == [1,2,3,4,5,6]
 
 assert [1,2,*[3,4,5],6,7,*[8,*[9,10],11],12] == [1,2,3,4,5,6,7,8,9,10,11,12]    // '*' is known as spreader which flattens the list
-assert [1,2,[3,4,5],6,7,[8,[9,10],11],12].flatten() == [1,2,3,4,5,6,7,8,9,10,11,12]
+assert [1,2,[3,4,5],6,7,[8,[9,10],11],12].flatten() == [1,2,3,4,5,6,7,8,9,10,11,12]   // can use the method flatten() to achieve the same
+
+// --------- Removing elements from the list -----------    //
+
+assert ['a', 'b', 'c', 'd', 'e', 'a'] - 'a' == ['b', 'c', 'd', 'e']    // Will remove all occurences of 'a'
+assert ['a', 'b', 'c', 'd', 'e', 'a', 'b'] - ['a', 'b'] == ['c', 'd', 'e']    // Will remove all occurences of the elements present in the second list
+
+def b = ['a', 'b', 'c', 'd', 'e', 'a', 'b']
+assert b.remove(2) == 'c' && b ==  ['a', 'b', 'd', 'e', 'a', 'b']  // Removing element by passing the index
+
+def c = ['a', 'b', 'c', 'd', 'e', 'a', 'b']
+assert c.remove('a') && c == ['b', 'c', 'd', 'e', 'a', 'b']    // remove() is an overloaded method which take index as well as element as an argument
+                                                               // when working with list of integers, use removeElement() and removeAt() methods
+def d = [1,2,3,4,5,6]
+d.clear()    // Remove all elements from the list by calling clear() method
+assert d == []
+
+// --------- Set operations on list -----------    //
+
+assert 'a' in ['a', 'b', 'c', 'd', 'e', 'a']    // Returns true if the element belongs in the list
+assert ['a', 'b', 'c', 'd', 'e', 'a'].contains('a')    // Same operation with 'contains()' method
+assert [1,2,3,4,5].containsAll([3,5])    // Returns true if all elements are found
+
+assert [1,2,3,3,4,5,3,6,3,3].count(3) == 5    // Counts the number of occurences of the given element
+assert (1..20).count {
+    it % 2 == 0            // counts the number of elements in the list of given range which match the predicate
+} == 10
+
+assert [1,2,3,4,5,6,7,8].intersect([6,7,8,9,10,11]) == [6,7,8]    // intersect() method finds the intersection (common elements) between two lists
+assert ![1,2,3,4,5,6,7,8].disjoint([6,7,8,9,10,11])               // disjoint() method is used to test if both the list contains any common elements
+
+// --------- Sorting operations on list -----------    //
+// Groovy offers variety of options to sort list from using Closures to comparators
+
+assert [8,7,5,4,3,6,7,7,6,5,55,3].sort() == [3, 3, 4, 5, 5, 6, 6, 7, 7, 7, 8, 55]
+
+def sortedBySize = ['Deepak', 'deep', 'deepack', 'dpk', 'dk']
+assert sortedBySize.sort {
+    it.size()                                        // Sort the strings in the list by their size
+} == ['dk', 'dpk', 'deep', 'Deepak', 'deepack']
+
+def listToSort = [7, 4, -6, -1, 11, 2, 3, -9, 5, -13].sort { i, j ->
+    i == j ? 0 : Math.abs(i) < Math.abs(j) ? -1 : 1                   // Sorting list with a Closure by absolute value
+}
+assert listToSort == [-1, 2, 3, 4, 5, -6, 7, -9, 11, -13]
