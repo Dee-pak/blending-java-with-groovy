@@ -7,7 +7,7 @@
     http://docs.groovy-lang.org/latest/html/api/groovy/lang/Range.html
 */
 
-// Ranges can be used with Integers
+// ---------- Ranges can be used with Integers ---------------- //
 Range range = 1..10
 println range
 println range.class
