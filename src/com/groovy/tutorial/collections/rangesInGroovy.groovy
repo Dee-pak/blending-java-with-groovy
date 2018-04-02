@@ -17,8 +17,8 @@ println range.to
 // Ranges are object and hence we can also call methods on range objects
 assert (0..10).contains(10)
 assert (0..10).contains(0)
-//assert (0..10).contains(11)    // false
-//assert (0..<10).contains(10)    // Half range Excluding 'to' would assert false
+assert (0..10).contains(11)    // false
+assert (0..<10).contains(10)    // Half range Excluding 'to' would assert false
 
 // We can also iterate through ranges using a classic for loop
 for ( i in 0..10 )
