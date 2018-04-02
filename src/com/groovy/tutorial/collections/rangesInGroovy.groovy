@@ -17,8 +17,8 @@ println range.to
 // Ranges are object and hence we can also call methods on range objects
 assert (0..10).contains(10)
 assert (0..10).contains(0)
-assert (0..10).contains(11)    // false
-assert (0..<10).contains(10)    // Half range Excluding 'to' would assert false
+//assert (0..10).contains(11)    // false
+//assert (0..<10).contains(10)    // Half range Excluding 'to' would assert false
 
 // We can also iterate through ranges using a classic for loop
 for ( i in 0..10 )
@@ -49,20 +49,18 @@ Range dateRange = today..weekFromToday
 println dateRange    // Would print out dates from today till one week later
 
 /* 
-    Note : Ranges can also be used with custom objects
+    Note : Ranges can also be created from enums
     Ranges can be used for any Java object which implements java.lang.Comparable 
     for comparison and also have methods next() and previous() to return the next / previous item in the range.
-
-@groovy.transform.ToString
-class Person implements Comparable {
-    String name
-    int age
-    String email
-    int mobile
-}
-
-Person superStar = new Person(name: "Deepak", age: 26, email: "Khobragade.d@husky.neu.edu", mobile: 6178935747)
-Person averageStar = new Person(name: "Nand", age: 26, email: "Modani.n@husky.neu.edu", mobile: 6178935775)
-Range persons = superStar..averageStar
-
 */
+// Example of enum:
+enum Days {
+    SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY
+}
+def dayRange = Days.SUNDAY..Days.SATURDAY
+dayRange.each { day ->
+    println day
+}
+println dayRange.size()
+println dayRange.from
+println dayRange.to
