@@ -10,13 +10,13 @@ def map = [:]
 assert map.class == null    // map.class will return null on a map that doesn’t contain the 'class' string as key in the map. Should we really want to know the class, then we must use getClass()
 assert map.getClass().getName() == "java.util.LinkedHashMap"
 
-def person = [firstName : "Deepak", lastName : "Khobragade", cell : 6178935747]
-assert person == [firstName:"Deepak", lastName:"Khobragade", cell:6178935747]
+def person = [firstName : "Deepak", lastName : "Khobragade", cell : 123456789]
+assert person == [firstName:"Deepak", lastName:"Khobragade", cell:123456789]
 assert person.firstName == "Deepak"    // We can get value of any key from the map by directly calling the key on the map
 
 // Adding a new key-value pair to map
 person.hobby = "Swimming"
-assert person == [firstName:"Deepak", lastName:"Khobragade", cell:6178935747, hobby:"Swimming"]
+assert person == [firstName:"Deepak", lastName:"Khobragade", cell:123456789, hobby:"Swimming"]
 
 // By default keys in map are Strings, if we need to use variables as keys we need to surround the variable with '()'
 def keyToAdd = "emailAddress"
