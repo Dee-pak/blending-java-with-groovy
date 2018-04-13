@@ -79,7 +79,7 @@ def closureWithVarargs = {String... args ->
 }
 assert closureWithVarargs('a','b','c','d','e') == 'abcde'
 
-// ------------------------------------------- Method accepting a Closure as an argument --------------------------------------------------------- //
+//--------------------------------------------- Method accepting a Closure as an argument --------------------------------------------------------- //
 
 def someMethod(Closure c){
     println c.maximumNumberOfParameters
